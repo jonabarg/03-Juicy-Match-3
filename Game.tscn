@@ -1,0 +1,208 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Grid/grid.gd" type="Script" id=1]
+[ext_resource path="res://Grid/Game.gd" type="Script" id=2]
+[ext_resource path="res://UI/HUD.gd" type="Script" id=3]
+[ext_resource path="res://UI/Level.gd" type="Script" id=4]
+[ext_resource path="res://UI/Goals.gd" type="Script" id=5]
+[ext_resource path="res://Assets/DiskTray.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Loading1.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Loading2.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/New Piskel-1.png (2).png" type="Texture" id=9]
+[ext_resource path="res://Assets/Music.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Piece_Background.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Starting.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Switch.wav" type="AudioStream" id=13]
+
+[node name="Game" type="Node2D"]
+process_priority = 1
+script = ExtResource( 2 )
+width = 5
+height = 8
+level = 1
+
+[node name="Background2" type="Sprite" parent="."]
+position = Vector2( -80, -80 )
+scale = Vector2( 12, 19 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 65, 230 )
+scale = Vector2( 2.2, 2.2 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource( 1 )
+x_start = 90
+y_start = 800
+offset = 100
+y_offset = 100
+possible_pieces = PoolStringArray( "res://Pieces/Blueberry.tscn", "res://Pieces/Lime.tscn", "res://Pieces/Apple.tscn", "res://Pieces/Banana.tscn", "res://Pieces/Orange.tscn", "res://Pieces/Pear.tscn" )
+
+[node name="HintTimer" type="Timer" parent="Grid"]
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="RefillTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="CollapseTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Goals_Container" type="Node2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="UI/HUD"]
+margin_left = 5.0
+margin_top = 7.0
+margin_right = 255.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Score: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Moves" type="Label" parent="UI/HUD"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -255.0
+margin_top = 7.0
+margin_right = -5.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Moves: "
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI/HUD"]
+anchor_right = 1.0
+margin_bottom = 30.0
+color = Color( 1, 1, 1, 0.376471 )
+
+[node name="Level" type="Control" parent="UI"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="UI/Level"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -100.0
+margin_bottom = 100.0
+color = Color( 1, 1, 1, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background2" type="ColorRect" parent="UI/Level"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -76.0
+margin_bottom = 74.0
+color = Color( 1, 1, 1, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="UI/Level"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -47.0
+margin_bottom = -7.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions" type="Label" parent="UI/Level"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 8.0
+margin_bottom = 68.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Match 15 red blocks"
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="UI/Level"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Goals" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goals" type="Label" parent="UI/Goals"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -104.0
+margin_bottom = -4.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -41.075
+autoplay = true
+
+[node name="Move" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="SwapBack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="Touch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="Spawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 4.163
+
+[connection signal="set_dimensions" from="." to="Grid" method="_on_Game_set_dimensions"]
+[connection signal="timeout" from="DestroyTimer" to="Grid" method="_on_DestroyTimer_timeout"]
+[connection signal="timeout" from="RefillTimer" to="Grid" method="_on_RefillTimer_timeout"]
+[connection signal="timeout" from="CollapseTimer" to="Grid" method="_on_CollapseTimer_timeout"]
+[connection signal="timeout" from="UI/Level/Timer" to="UI/Level" method="_on_Timer_timeout"]
+[connection signal="finished" from="Music" to="Music" method="_on_Music_finished"]

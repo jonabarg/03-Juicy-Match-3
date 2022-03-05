@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Banana.png" type="Texture" id=1]
+[ext_resource path="res://Pieces/Piece.tscn" type="PackedScene" id=2]
+
+[node name="Banana" instance=ExtResource( 2 )]
+piece="Banana"
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 1 )

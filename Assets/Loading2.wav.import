@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Loading2.wav-7ebdcdd0ef868a4f62a48ddc96208a2a.sample"
+
+[deps]
+
+source_file="res://Assets/Loading2.wav"
+dest_files=[ "res://.import/Loading2.wav-7ebdcdd0ef868a4f62a48ddc96208a2a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
