@@ -20,7 +20,7 @@ Added:
 	Pieces fade in when spawning, 
 	Simple background for Main game and Win screen, 
 	Two additional levels, 
-	Added more pieces and increased number of pieces in play, 
+	Added more pieces and increased number of pieces in play
 
 
 ## References
