@@ -5,21 +5,21 @@ Project 3 for MSCH-C220, March 2022
 
 Built using Godot 3.4.2
 Added:
-	Music
-	Sound for pieces being spawned
-	Sound for a piece being selected
-	Sound for a piece being moved
-	Sound for a piece being moved back due to illegal move
-	Sound for pieces being matched
-	Particles on Win screen
-	Piece backgrounds change color/transparency when selected
-	Piece icons rotate in an alternating pattern and shift size when selected
-	Pieces shrink and turn black while fading out when matched
-	Piece icons and backgrounds rotate independently of each other when matched
-	Pieces fade in when spawning
-	Simple background for Main game and Win screen
-	Two additional levels
-	Added more pieces and increased number of pieces in play
+	Music, 
+	Sound for pieces being spawned, 
+	Sound for a piece being selected, 
+	Sound for a piece being moved, 
+	Sound for a piece being moved back due to illegal move, 
+	Sound for pieces being matched, 
+	Particles on Win screen, 
+	Piece backgrounds change color/transparency when selected, 
+	Piece icons rotate in an alternating pattern and shift size when selected, 
+	Pieces shrink and turn black while fading out when matched, 
+	Piece icons and backgrounds rotate independently of each other when matched, 
+	Pieces fade in when spawning, 
+	Simple background for Main game and Win screen, 
+	Two additional levels, 
+	Added more pieces and increased number of pieces in play, 
 
 
 ## References
